@@ -8,14 +8,24 @@
 </head>
 
 <body>
-    <?php
-    $name = $_GET["name"];
-    $mail = $_GET["mail"];
-    $age = $_GET["age"];
+    <div style="text-align: center">
+        <?php
+            $name = $_GET["name"];
+            $mail = $_GET["mail"];
+            $age = $_GET["age"];
 
-    echo $name;
-    echo $age;
-    echo $mail;
-    ?>
+            echo "Name: " . $name . "<br> Age:" . $age . "<br> Mail: " . $mail . "<br>";
+
+            $checkName = strlen($name) > 3;
+            $checkAge = is_numeric($age);
+            $checkMail = strpos($mail, '.') != false && strpos($mail, '@') != false;
+
+            if ($checkName && $checkAge && $checkMail) {
+                echo "Accesso riuscito";
+            } else {
+                echo "Accesso negato";
+            }
+        ?>
+    </div>
 </body>
 </html>
