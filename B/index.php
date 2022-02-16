@@ -9,23 +9,28 @@
 
 <body>
     <div style="text-align: center">
+
         <?php
-            $name = $_GET["name"];
-            $mail = $_GET["mail"];
-            $age = $_GET["age"];
+        $name = $_GET["name"];
+        $mail = $_GET["mail"];
+        $age = $_GET["age"];
 
-            echo "Name: " . $name . "<br> Age:" . $age . "<br> Mail: " . $mail . "<br>";
+        echo "Name: " . $name . "<br> Age:" . $age . "<br> Mail: " . $mail . "<br>";
 
-            $checkName = strlen($name) > 3;
-            $checkAge = is_numeric($age);
-            $checkMail = strpos($mail, '.') != false && strpos($mail, '@') != false;
+        $checkName = strlen($name) > 3;
+        $checkAge = is_numeric($age);
+        $checkMail = strpos($mail, '.') != false
+            && strpos($mail, '@') != false
+            && strpos($mail, '.') >= strlen($mail) - 4;
 
-            if ($checkName && $checkAge && $checkMail) {
-                echo "Accesso riuscito";
-            } else {
-                echo "Accesso negato";
-            }
+        if ($checkName && $checkAge && $checkMail) {
+            echo "Accesso riuscito";
+        } else {
+            echo "Accesso negato";
+        }
         ?>
+
     </div>
 </body>
+
 </html>
