@@ -15,7 +15,7 @@
         $mail = $_GET["mail"];
         $age = $_GET["age"];
 
-        echo "Name: " . $name . "<br> Age:" . $age . "<br> Mail: " . $mail . "<br>";
+        echo "Name: $name <br> Age: $age <br> Mail: $mail <br>";
 
         $checkName = strlen($name) > 3;
         $checkAge = is_numeric($age);
